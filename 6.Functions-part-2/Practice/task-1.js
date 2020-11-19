@@ -7,10 +7,13 @@
 // First callback doesn't get any parameter.
 
 function mix(...args){
+    if(args.length === 0){
+        throw new Error("mix() function should have at least one parameter");  
+    }
     let result;
     for(let i = 0; i < args.length; i++){
         if(typeof args[i] !== 'function'){
-            throw new Error("parameters of mix() can only be fuctions");
+            throw new Error("parameters of mix() can only be functions");
         }
         result = args[i](result);
     }
@@ -25,7 +28,7 @@ try{
         return prev + 1;
     }, (prev) => {
         return prev * 2;
-    }) 
+    }); 
    
     console.log(myVar); // 2
 } catch(e) {

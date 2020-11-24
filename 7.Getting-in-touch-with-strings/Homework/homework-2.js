@@ -13,3 +13,20 @@
 // ```javascript
 // extractCurrencyValue('$120'); // 120
 // ```
+
+function extractCurrencyValue(source){
+    if(typeof source !== 'string'){
+        throw new Error("parameter should be a string");
+    }
+    let substr = source.substring( 1,source.length);
+    let num = Number(substr);
+    return num;
+   
+}
+let n;
+try{
+   n = extractCurrencyValue('$120');
+   console.log(n);
+}catch(e){
+    console.log("Error: " + e.message);
+}

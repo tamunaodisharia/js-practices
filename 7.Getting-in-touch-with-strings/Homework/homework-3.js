@@ -17,8 +17,16 @@ function searchWord(str, word){
     while(true){
         i = str.indexOf(word, i);
         if(i !== -1){
-            count++;
-            i = i + word.length;
+            if((i !== 0) && 
+            (str.charCodeAt(i+word.length) > 64 && str.charCodeAt(i+word.length) < 91) || 
+            (str.charCodeAt(i+word.length) > 96 && str.charCodeAt(i+word.length) < 123) || 
+            (str.charCodeAt(i-1) > 64 && str.charCodeAt(i-1) < 91) || 
+            (str.charCodeAt(i-1) > 96 && str.charCodeAt(i-1) < 123)){
+                i = i + word.length + 1;
+            }else{
+                count++;
+                i = i + word.length;
+            }
         }else{
             break;
         }

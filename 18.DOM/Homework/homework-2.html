@@ -1,0 +1,42 @@
+<!-- ### Task 2
+
+Create image randomizer program )
+
+1. Create array of different img links (min length 5).
+2. Create `Next image` button.
+3. Create tag image to display images.
+4. When you click button it should change image randomly.
+5. On bottom of the image we should display length of images (from array) inside p tag.
+
+Create elements as you like from js or hardcoded Html.
+Links can be from Internet or from local machine. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="nextImage()">Next Image</button>
+    <br>
+    <img id="image" src="" style="width:400px;">
+    <p id="text"></p>
+
+
+    <script>
+        const arr = [];
+        for(let i = 1; i <= 6; i++){
+            arr.push("images/" + i + ".jpg");
+        }
+        console.log(arr);
+        function nextImage() {
+            let i = Math.floor((Math.random() * 6) + 0);
+            document.getElementById("image").src = arr[i];
+            document.getElementById("text").innerHTML = `length of the array = ${arr.length}. image index = ${i}.`;
+        }
+    </script>
+</body>
+</html>

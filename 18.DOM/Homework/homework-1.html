@@ -1,0 +1,48 @@
+<!-- ### Task 1
+
+On the following text we should highlight bolded words.
+
+```HTML
+    <div id="textBox">
+        <strong>Lorem ipsum</strong> dolor, sit amet consectetur adipisicing elit. Nemo sint earum ab <strong>totam</strong> praesentium aperiam suscipit reiciendis doloribus, sequi incidunt atque necessitatibus <strong>ipsam tempora</strong> obcaecati numquam provident modi, doloremque magni?
+    </div>
+```
+
+1. When mouse enters `#textBox` highlight bolded words by green color and change font size to make it bigger
+
+2. When mouse will out make them look as it was before -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="textBox">
+        <strong>Lorem ipsum</strong> dolor, sit amet consectetur adipisicing elit. Nemo sint earum ab <strong>totam</strong> praesentium aperiam suscipit reiciendis doloribus, sequi incidunt atque necessitatibus <strong>ipsam tempora</strong> obcaecati numquam provident modi, doloremque magni?
+    </div>
+    
+
+    <script>
+        const element = document.getElementById('textBox');
+        const list = [...document.getElementsByTagName('strong')];
+        
+        element.onmouseover = () => {
+            list.forEach((text, index) => {
+                console.log(text);
+                text.style.color = 'green';
+                text.style.fontSize = '25px';
+            });
+        }
+        element.onmouseout = () => {
+            list.forEach((text, index) => {
+                text.style.color = 'initial';
+                text.style.fontSize = 'initial';
+            });
+        }
+    </script>
+</body>
+</html>
+
